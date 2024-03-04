@@ -53,33 +53,36 @@ export default function PokeDetails({params}) {
 
 
     return (
-        <div>
+        <div className={`${styles.details_container} w-screen h-screen flex flex-col justify-center items-center`}>
+            <div>
+                <h1>{detail?.name}</h1>
+            </div>
             {detail !== undefined &&(
-                <div className={`${styles.details_container} w-screen h-screen flex flex-row justify-evenly items-center`}>
+                <div  className={` w-4/5 flex flex-row justify-evenly items-center bg-blue-200`}>
                     {/* <button onClick={() => router.push(`/`)}>Back</button> */}
-                    <div className={`${styles.pokeImg} flex flex-col justify-center items-center bg-pink-200`}>
-                        <Image src={detail?.image} width={200} height={200}/>
+                    <div className={`${styles.pokeImg} flex flex-col justify-center items-center bg-pink-200 w-1/2`}>
+                        <Image src={detail?.image} width={200} height={200} alt={detail?.name}/>
 
                         {/* evolution */}
                         <div className={`${styles.evol} grid grid-cols-3`}>
 
                         </div>
                     </div>
-                    <div className={` bg-yellow-200`}>
-                        <div className={`${styles.pokeInfos} bg-yellow-200`}>
-                            <h1>{detail?.name}</h1>
-
+                    <div className={` bg-yellow-200 w-1/2 p-2`}>
+                        <div className={`${styles.pokeInfos}`}>
                             {/* types */}
                             <div>
                                 <p>types</p>
-                                {types.map((type, id) => ( <button key={id}>{type.name}</button> ))}
+                                <div className={`flex flex-row gap-4`}>
+                                    {types.map((type, id) => ( <button key={id}>{type.name}</button> ))}
+                                </div>
                             </div>
 
                             {/* stats */}
                             <div>
                                 <p>stats</p>
                                 {Object.entries(stats).map(([statName, statValue], id) => (
-                                    <div key={id}>
+                                    <div key={id} className={`flex flex-row justify-between w-1/2`}>
                                         <p>{newStatName(statName)}</p>
                                         <progress value={statValue} max={100}></progress>
                                     </div>
@@ -90,11 +93,13 @@ export default function PokeDetails({params}) {
                             {/* faiblesses */}
                             <div>
                                 <p>weaknesses</p>
-                                {vulnerabilities.length > 0 ? (vulnerabilities.map((weakness, id) => (
-                                    <p key={id}>{weakness.name}</p>
-                                ))
-                                ):( <p>No weakness</p> )
-                                }
+                                <div className={`flex flex-row gap-4`}>
+                                    {vulnerabilities.length > 0 ? (vulnerabilities.map((weakness, id) => (
+                                        <p key={id}>{weakness.name}</p>
+                                    ))
+                                    ):( <p>No weakness</p> )
+                                    }
+                                </div>
                             </div>
 
                         </div>

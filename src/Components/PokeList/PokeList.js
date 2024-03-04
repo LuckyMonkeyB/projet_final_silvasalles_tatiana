@@ -7,11 +7,16 @@ import styles from '@/ui/pokeList.module.css'
 
 
 export default function PokeList() {
+    // STATES
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     const [query, setQuery] = useState(''); //->input
     const [selectedPokemon, setSelectedPokemon] = useState('') //->select
+
+    const [visiblePokemons, setVisiblePokemons] = useState(30)
+
+    const [goUp, setGoUp] = useState(false)
 
     const router = useRouter()
 
@@ -28,9 +33,29 @@ export default function PokeList() {
         return isNameMatch && isTypeMatch;
     });
 
+    const loadMore = () => {
+        setVisiblePokemons((prev) => prev +30)
+    }
+
+    const handleScroll = () => {
+        if(window.scrollY > 400){
+            setGoUp(true)
+        }else{
+            setGoUp(false)
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll)
+    }, [])
+
+    const scrollTop = () => {
+        window.scrollTo({top: 0, behavior: 'smooth'})
+    }
+
 
     return (
-        <div className={`${styles.pokeList_container} flex min-h-screen flex-col items-center justify-between p-24`}>
+        <div className={`${styles.pokeList_container} flex min-h-screen flex-col items-center justify-between p-24 `}>
             <div className={`${styles.filters} flex flex-row justify-between w-full px-24`}>
                 <div className={`${styles.searchbar}`}>
                     <input type="search" id='search' placeholder='Find your pokemon' onChange={(e)=> setQuery(e.target.value)}/>
@@ -64,14 +89,20 @@ export default function PokeList() {
             </div>
             <div className='grid grid-cols-3 gap-x-5 gap-y-10 p-5'>
                 {
-                    filteredData?.map((pokemon)=> 
+                    filteredData?.slice(0, visiblePokemons).map((pokemon)=> 
                     <button key={pokemon.id} onClick={() => router.push(`/${pokemon.name}`)} className={`${styles.card} h-[40vh] flex flex-col items-center justify-center gap-y-4 p-5`}>
-                        <Image src={pokemon.image} width={200} height={200} className={`${styles.imgPoke} h-3/5`}/>
+                        <Image src={pokemon.image} width={200} height={200} className={`${styles.imgPoke} h-3/5`} alt={pokemon.name}/>
                         <p className=''>{pokemon.name}</p>
                     </button>
                 )}
                 { isLoading && <p>Loading...</p> }
             </div>
+            {visiblePokemons < filteredData.length && (
+                <button onClick={loadMore}>Load More</button>
+            )}
+            {goUp && (
+                <button onClick={scrollTop} className={`styles.btnUp`}>Go Up</button>
+            )}
         </div>
     )
 }

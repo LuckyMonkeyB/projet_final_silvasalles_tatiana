@@ -8,7 +8,7 @@ export default function Header() {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
-        <div className={styles.header_container}>
+        <div className={`${styles.header_container} z-10`}>
         <div
             className={`${styles.triggerArea} bg-red-400`}
             onMouseEnter={() => setIsHovered(true)}

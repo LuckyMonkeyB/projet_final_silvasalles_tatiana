@@ -1,6 +1,4 @@
 .pokeList_container{
-    background-image: url('/public/images/pokeball.png');    
-    background-repeat: repeat;
     background-color: #AAD7F9;
 }
 .card {
@@ -25,3 +23,12 @@
     object-fit: contain;
 }
 
+/* .btnUp{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: blue;
+    color: white;
+    
+} */
