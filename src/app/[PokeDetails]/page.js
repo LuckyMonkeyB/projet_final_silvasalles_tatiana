@@ -8,6 +8,8 @@ import styles from '@/ui/pokedetails.module.css'
 
 
 export default function PokeDetails({params}) {
+
+
     
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -23,8 +25,6 @@ export default function PokeDetails({params}) {
 
     const evolutions = detail?.apiEvolutions || [];
     const evol = data.filter((pokemon) => evolutions.includes(pokemon.name)) 
-    // console.log(evolutions);
-    // console.log(evol)
 
     const types = detail?.apiTypes || []
 
@@ -58,9 +58,8 @@ export default function PokeDetails({params}) {
                 <h1>{detail?.name}</h1>
             </div>
             {detail !== undefined &&(
-                <div  className={` w-4/5 flex flex-row justify-evenly items-center bg-blue-200`}>
-                    {/* <button onClick={() => router.push(`/`)}>Back</button> */}
-                    <div className={`${styles.pokeImg} flex flex-col justify-center items-center bg-pink-200 w-1/2`}>
+                <div  className={`${styles.details_content} w-4/5 flex flex-row justify-evenly items-center `}>
+                    <div className={`${styles.pokeImg} flex flex-col justify-center items-center  w-1/2`}>
                         <Image src={detail?.image} width={200} height={200} alt={detail?.name}/>
 
                         {/* evolution */}
@@ -68,34 +67,24 @@ export default function PokeDetails({params}) {
 
                         </div>
                     </div>
-                    <div className={` bg-yellow-200 w-1/2 p-2`}>
-                        <div className={`${styles.pokeInfos}`}>
+                    {/* RIGHT SIDE */}
+                    <div className={`${styles.infos_content}  w-1/2 flex flex-row justify-between`}>
+                        
+                        <div className={` ${styles.infos_col}flex flex-col gap-4`}>
                             {/* types */}
-                            <div>
-                                <p>types</p>
+                            <div className={` ${styles.types}`}>
+                                <p className={`font-bold`}>TYPES</p>
                                 <div className={`flex flex-row gap-4`}>
                                     {types.map((type, id) => ( <button key={id}>{type.name}</button> ))}
                                 </div>
                             </div>
 
-                            {/* stats */}
-                            <div>
-                                <p>stats</p>
-                                {Object.entries(stats).map(([statName, statValue], id) => (
-                                    <div key={id} className={`flex flex-row justify-between w-1/2`}>
-                                        <p>{newStatName(statName)}</p>
-                                        <progress value={statValue} max={100}></progress>
-                                    </div>
-                                ))
-                                }
-                            </div>
-
                             {/* faiblesses */}
-                            <div>
-                                <p>weaknesses</p>
+                            <div className={`${styles.weaknesses}`}>
+                                <p className={`font-bold`}>WEAKNESSES</p>
                                 <div className={`flex flex-row gap-4`}>
                                     {vulnerabilities.length > 0 ? (vulnerabilities.map((weakness, id) => (
-                                        <p key={id}>{weakness.name}</p>
+                                        <button key={id}>{weakness.name}</button>
                                     ))
                                     ):( <p>No weakness</p> )
                                     }
@@ -104,6 +93,17 @@ export default function PokeDetails({params}) {
 
                         </div>
 
+                        {/* stats */}
+                        <div className={`${styles.stats}`}>
+                            <p className={`font-bold`}>STATS</p>
+                            {Object.entries(stats).map(([statName, statValue], id) => (
+                                <div key={id} className={`flex flex-row justify-between gap-2`}>
+                                    <p>{newStatName(statName)}</p>
+                                    <progress value={statValue} max={100}></progress>
+                                </div>
+                            ))
+                            }
+                        </div>
 
                     </div>
                 </div>
