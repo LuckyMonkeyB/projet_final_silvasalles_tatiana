@@ -1,0 +1,36 @@
+.header_container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: transform 0.3s forwards;
+}
+
+.content{
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.triggerArea {
+    height: 2px;
+}
+
+.pokemon_img {
+    cursor: pointer;
+    image-rendering: pixelated;
+}
+
+.pokemon_img:hover {
+    transform: scale(1.2);
+}
+
+.pokedex_img {
+    cursor: pointer;
+}
+
+.pokedex_img:hover {
+    transform: rotate(-10deg);
+}

@@ -1,0 +1,11 @@
+.details_container{
+    /* background-image: url('/images/field-bg.jpg'); */
+    background-image: url('/images/field-trees.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.pokeInfos{
+
+}

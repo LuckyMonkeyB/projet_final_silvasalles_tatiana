@@ -1,0 +1,44 @@
+.welcome_container{
+    background-color: #0d1818;
+}
+
+.typewriter{
+    background-color: #fbfbf9;
+    border: 4px solid red;
+    border-radius: 5px;
+    border-style: double;
+    padding: 0.5rem 0.5rem 2rem;
+}
+.typewriter_content p {
+    overflow: hidden; 
+    margin: 0;
+    letter-spacing: .15em;
+    animation: typing 3.5s steps(40, end);
+    white-space: nowrap;
+}
+
+@keyframes typing {
+    from { 
+        width: 0;
+    }
+    to { 
+        width: 100% 
+    }
+}
+
+.choices{
+    animation: appear 0.5s forwards;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.choices p:hover::before{
+    content: '\00BB';
+}

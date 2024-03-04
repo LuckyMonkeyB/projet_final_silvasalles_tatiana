@@ -1,0 +1,27 @@
+.pokeList_container{
+    background-image: url('/public/images/pokeball.png');    
+    background-repeat: repeat;
+    background-color: #AAD7F9;
+}
+.card {
+    border-radius: 35px;
+    /* background: linear-gradient(145deg, #f0f0f0, #cacaca); */
+    box-shadow: 3px 3px 0px 1px #797979;
+    border: 2px solid #3d3d3d;
+    background-image: radial-gradient(circle, #fffdf6, #fefaed, #fdf8e4, #fcf5dc, #fbf3d3);
+}
+
+.card:hover {
+    transform: translateY(4px);
+    box-shadow: 1px 2px 0px 0px #797979;
+}
+.card:focus {
+    transform: translateY(4px);
+    box-shadow: 1px 2px 0px 0px #797979;
+}
+
+.imgPoke{
+    image-rendering: pixelated;
+    object-fit: contain;
+}
+
