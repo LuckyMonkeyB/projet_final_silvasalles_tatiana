@@ -117,9 +117,17 @@ export default function Slider() {
 
 
     return (
-        <div className={` ${styles.carousel_container} flex justify-center h-96`}>
+        <div className={` ${styles.carousel_container} flex justify-center h-96 `}>
+        {/* LOADING */}
+        { isLoading && 
+            <div className={`${styles.reflect} `}>
+                <p>loading...</p>
+            </div>
+    }
+                    
+
             <Carousel className="flex justify-center items-center" >
-                <CarouselContent className={``}>
+                <CarouselContent className="h-96 w-screen">
                     {
                         imgRandom.map((pokemon, id) => (<CarouselItem key={id} className="flex justify-center items-center w-full h-full relative" style={bgStyles[id]}>
                             <div>
@@ -130,8 +138,8 @@ export default function Slider() {
                         </CarouselItem>))
                     }
                 </CarouselContent>
-                <CarouselPrevious  />
-                <CarouselNext />
+                <CarouselPrevious className="left-14"  />
+                <CarouselNext className="right-14" />
             </Carousel>
         </div>
     )

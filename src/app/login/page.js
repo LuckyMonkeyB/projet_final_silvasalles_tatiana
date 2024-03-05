@@ -23,7 +23,7 @@ export default function login() {
 
     useEffect(()=>{
         if(isLogged)
-        router.push('/')
+        router.push('/home')
     },[isLogged])
 
     return (
