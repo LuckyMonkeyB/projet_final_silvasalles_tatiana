@@ -31,6 +31,14 @@ export default function subscribe() {
 
                 <div className='grid gap-2'>
                     <div className={styles.field}>
+                        <label className={`${styles.labs} text-white`} for="email">Email</label>
+                        <input 
+                        placeholder="Email address" 
+                        className={styles.input_field} 
+                        type="email"></input>
+                    </div>
+
+                    <div className={styles.field}>
                         <label className={`${styles.labs} text-white`} for="name">Username</label>
                         <input 
                         autocomplete="off" 
@@ -49,13 +57,6 @@ export default function subscribe() {
                         onChange={(e) => dispatch(getIdentity(e.target.value))}></input>
                     </div>
 
-                    <div className={styles.field}>
-                        <label className={`${styles.labs} text-white`} for="email">Email</label>
-                        <input 
-                        placeholder="Email address" 
-                        className={styles.input_field} 
-                        type="email"></input>
-                    </div>
                 </div>
 
                 <p className='pt-4 text-white'>Already have an account? <Link href={`/login`} className='text-yellow-300'>Login</Link></p>

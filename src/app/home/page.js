@@ -1,8 +1,9 @@
 'use client'
 import PokeList from "@/Components/PokeList/PokeList";
 import Slider from "@/Components/Slider/Slider";
+import Best from "@/Components/Best/Best";
 import { useEffect, useState } from "react";
-import styles from '@/ui/homepage.module.css'
+import styles from '@/ui/home.module.css'
 
 export default function Home() {
 
@@ -30,14 +31,16 @@ export default function Home() {
             <div className="w-full flex justify-center items-center">
                 <Slider/>
             </div>
+            {/* BEST POKEMONS */}
+            <div className="w-full flex justify-center items-center">
+                <Best />
+            </div>
             {/* POKEMONS LIST */}
             <PokeList />
             {/* GO UP */}
-            <div className={`absolute z-10 bottom-0 right-0`}>
-                {goUp && (
-                <button onClick={scrollTop} className={`${styles.btnUp}`}>Go Up</button>
-                )}
-            </div>
+            {goUp && (
+            <button onClick={scrollTop} className={`${styles.btnUp}`}>UP</button>
+            )}
         </main>
     );
 }

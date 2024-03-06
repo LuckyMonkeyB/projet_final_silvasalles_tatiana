@@ -17,6 +17,7 @@
 .card {
     border-radius: 35px;
     /* background: linear-gradient(145deg, #f0f0f0, #cacaca); */
+    /* background-image: radial-gradient(circle, #e3e3e3, #c9cacb, #afb1b3, #95999a, #7c8282); */
     background-image: radial-gradient(circle, #fffdf6, #fefaed, #fdf8e4, #fcf5dc, #fbf3d3);
     box-shadow: 3px 3px 0px 1px #797979;
     border: 2px solid #3d3d3d;

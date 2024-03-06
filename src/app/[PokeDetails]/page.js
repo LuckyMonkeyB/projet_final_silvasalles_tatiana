@@ -4,6 +4,8 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import styles from '@/ui/pokedetails.module.css'
+import { add, remove } from '@/lib/features/favSlice'
+import { useDispatch, useSelector } from 'react-redux'
 
 
 
@@ -17,6 +19,10 @@ export default function PokeDetails({params}) {
     }, [])
 
     const router = useRouter()
+
+    const dispatch = useDispatch()
+    const favs = useSelector((state) => state.favorites.favs)
+
 
 
     const detail = data.find((pokemon)=>pokemon.name === params.PokeDetails)
@@ -49,6 +55,7 @@ export default function PokeDetails({params}) {
     const weaknesses = detail?.apiResistances || []
     const vulnerabilities = weaknesses.filter((weak) => weak.damage_relation === 'vulnerable')
 
+    console.log(favs)
 
     return (
         <div className={`${styles.details_page} w-screen h-screen flex justify-center items-center`}>
@@ -120,8 +127,11 @@ export default function PokeDetails({params}) {
                 )}
                 {/* BUTTONS FAV/RELEASE */}
                 <div className={`${styles.details_btns} flex flex-row justify-around items-center `}>
-                        <button>CATCH</button>
-                        <button>RELEASE</button>
+                    {
+                        favs?.find((pokemon) => pokemon?.id == detail?.id) ?
+                        <button onClick={() => dispatch(remove(detail))}>RELEASE</button>
+                        :<button onClick={() => dispatch(add(detail))}>CATCH</button> 
+                    }
                 </div>
             </div>
         </div>

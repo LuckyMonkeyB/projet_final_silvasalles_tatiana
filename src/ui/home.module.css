@@ -1,0 +1,23 @@
+.btnUp{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    background-color: #444444;
+    box-shadow: 3px 3px 0px 1px #222222;
+    border: 2px solid #333535;
+
+    
+}
+
+/* .btnUp:hover {
+    transform: translateY(4px);
+    box-shadow: 1px 2px 0px 0px #7c8282;
+} */
+.btnUp:focus {
+    transform: translateY(4px);
+    box-shadow: 1px 2px 0px 0px #7c8282;
+}
+

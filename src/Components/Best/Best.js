@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { fetchData } from '@/app/api/pokedata'
 import {
     Carousel,
@@ -21,20 +21,15 @@ export default function Best() {
         fetchData(setData, setIsLoading)
     }, [])
 
-    const filteredBests = data.filter((pokemon) => {
-
-    })
+    const filteredBests = data.filter((pokemon) => {pokemon.stats.attack > 98})
 
     return (
-        <section>
+        <section className='h-48 w-full bg-slate-500'>
             <Carousel className={``} >
                 <CarouselContent className={``}>
                     {
                         filteredBests.map((pokemon, id) => (<CarouselItem key={id} className={``} >
-                            <div>
-
-                            </div>
-                            <Image src={pokemon.image} width={200} height={200} alt={pokemon.name} className={``}/>
+                            <Image src={pokemon.sprite} width={200} height={200} alt={pokemon.name} className={``}/>
                         </CarouselItem>))
                     }
                 </CarouselContent>
