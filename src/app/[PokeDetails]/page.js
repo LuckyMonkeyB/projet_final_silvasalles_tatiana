@@ -68,7 +68,7 @@ export default function PokeDetails({params}) {
                 { isLoading && 
                     <div className={`${styles.myLoading}`}>
                         <p>loading...</p>
-                        <Image className={`${styles.giphy}`} src='/images/giphy.gif' width={80} height={90}/>
+                        <Image className={`${styles.giphy}`} src='/images/giphy.gif' width={80} height={90} alt='gif'/>
                     </div>
                 }
                 {/* SCREEN */}
@@ -76,7 +76,7 @@ export default function PokeDetails({params}) {
                     <div  className={`${styles.details_content} grid grid-cols-2 p-8 `}>
                         {/* POKEMON IMAGE */}
                         <div className={`${styles.pokeImg} grid justify-center items-center `}>
-                            <Image src={detail?.image} width={200} height={200} alt={detail?.name}/>
+                            <Image src={detail?.image} width={200} height={200} alt='pokemon'/>
                             {/* evolution */}
                             <div className={`${styles.evol} grid grid-cols-3`}>
 
@@ -115,7 +115,7 @@ export default function PokeDetails({params}) {
                                     {Object.entries(stats).map(([statName, statValue], id) => (
                                         <div key={id} className={`flex flex-cow justify-between`}>
                                             <p>{newStatName(statName)}</p>
-                                            <progress value={statValue} max={100}></progress>
+                                            <progress className={`${styles.progress}`} value={statValue} max={100}></progress>
                                         </div>
                                     ))
                                     }
@@ -126,13 +126,16 @@ export default function PokeDetails({params}) {
                     </div>
                 )}
                 {/* BUTTONS FAV/RELEASE */}
-                <div className={`${styles.details_btns} flex flex-row justify-around items-center `}>
-                    {
-                        favs?.find((pokemon) => pokemon?.id == detail?.id) ?
-                        <button onClick={() => dispatch(remove(detail))}>RELEASE</button>
-                        :<button onClick={() => dispatch(add(detail))}>CATCH</button> 
-                    }
-                </div>
+                {
+                    !isLoading &&
+                    <div className={`${styles.details_btns} flex flex-row justify-around items-center `}>
+                        {
+                            favs?.find((pokemon) => pokemon?.id == detail?.id) ?
+                            <button onClick={() => dispatch(remove(detail))}>RELEASE</button>
+                            :<button onClick={() => dispatch(add(detail))}>CATCH</button> 
+                        }
+                    </div>
+                }
             </div>
         </div>
     )

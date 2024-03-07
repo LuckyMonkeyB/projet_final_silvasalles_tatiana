@@ -58,17 +58,17 @@ export default function PokeList() {
 
     return (
         <section className={`${styles.pokeList_container} grid grid-cols-1 items-center justify-between p-24 `}>
-            <div className='bg-white border-2 border-black p-16'>
+            <div className='bg-[#f2f2f2] border-2 border-black p-16'>
 
                 {/* FILTERS */}
                 <div className={`${styles.filters} flex flex-row   justify-between w-full px-24 `}>
                     {/* searchbar filter */}
                     <div className={`${styles.searchbar}`}>
-                        <input className={styles.input_field} type="search" id='search' placeholder='Find your pokemon' onChange={(e)=> setQuery(e.target.value)}/>
+                        <input className={styles.filter} type="search" id='search' placeholder='Find your pokemon' onChange={(e)=> setQuery(e.target.value)}/>
                     </div>
                     {/* select filter */}
                     <div>
-                        <select className={`${styles.input_field} h-full`} value={selectedPokemon} onChange={(e)=>setSelectedPokemon(e.target.value)}>
+                        <select className={`${styles.filter} ${styles.select} h-full`} value={selectedPokemon} onChange={(e)=>setSelectedPokemon(e.target.value)}>
                             <option value="" disabled selected hidden>Filter by type</option>
                             <option value="">All</option>
                             <option value="Normal">Normal</option>
@@ -99,7 +99,7 @@ export default function PokeList() {
                     {
                         filteredData?.slice(0, visiblePokemons).map((pokemon)=> 
                         <div key={pokemon.id} onClick={() => router.push(`/${pokemon.name}`)} className={`${styles.card} h-[40vh] flex flex-col items-center justify-center gap-y-4 p-5`}>
-                            <Image src={pokemon.image} width={200} height={200} className={`${styles.imgPoke} h-3/5`} alt={pokemon.name}/>
+                            <Image src={pokemon.image} width={200} height={200} className={`${styles.imgPoke} h-3/5`} alt='pokemon'/>
                             <p className=''>{pokemon.name}</p>
                         </div>
                     )}
@@ -107,7 +107,7 @@ export default function PokeList() {
                     { isLoading && 
                     <div className={`${styles.myLoading}`}>
                         {/* <p>loading...</p> */}
-                        <Image className={`${styles.loader}`} src={loader} width={100} height={100}/>
+                        <Image className={`${styles.loader}`} src={loader} width={100} height={100} alt='loader'/>
                     </div>
                 
                     }

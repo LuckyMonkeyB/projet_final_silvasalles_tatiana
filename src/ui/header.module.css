@@ -14,9 +14,6 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.triggerArea {
-    height: 2px;
-}
 
 .pokemon_img {
     cursor: pointer;

@@ -9,6 +9,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel"
+
 import styles from '@/ui/slider.module.css'
 
 
@@ -121,7 +122,7 @@ export default function Slider() {
         {/* LOADING */}
         { isLoading && 
             <div className={`${styles.reflect} `}>
-                <p>loading...</p>
+                {/* <p>loading...</p> */}
             </div>
     }
                     
@@ -129,12 +130,12 @@ export default function Slider() {
             <Carousel className="flex justify-center items-center" >
                 <CarouselContent className="h-96 w-screen">
                     {
-                        imgRandom.map((pokemon, id) => (<CarouselItem key={id} className="flex justify-center items-center w-full h-full relative" style={bgStyles[id]}>
+                        imgRandom.map((pokemon, id) => (<CarouselItem key={id} className="flex flex-col justify-center items-center w-full h-full relative" style={bgStyles[id]}>
                             <div>
-
                                 <p className={`${styles.nameTitle}`}>{pokemon.name}</p>
                             </div>
-                            <Image src={pokemon.image} width={200} height={200} alt={pokemon.name} className={`absolute z-10`}/>
+                            <Image src={pokemon.image} width={200} height={200} alt='pokemon' className={`absolute z-10`}/>
+                            {/* <div className='mt-12'><p>see more</p></div> */}
                         </CarouselItem>))
                     }
                 </CarouselContent>

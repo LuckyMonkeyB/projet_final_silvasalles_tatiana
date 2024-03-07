@@ -28,7 +28,7 @@ export default function welcome() {
     return (
         <div className={`${styles.welcome_container} w-screen h-screen flex justify-center items-center`}>
             <div className='flex flex-col items-center' style={{ display: visible ? 'block' : 'none' }}>
-              <Image className={`${styles.welcomeImg}`} src={'/images/oak/oak_world.png'} width={150} height={150}/>
+              <Image className={`${styles.welcomeImg}`} src={'/images/oak/oak_world.png'} width={150} height={150} alt='professor'/>
               <div className={`${styles.typewriter} w-full h-auto`}>
                 <div className={`${styles.typewriter_content}`}>
                   <p>Welcome to the world of POKEMON!</p>
@@ -40,7 +40,7 @@ export default function welcome() {
             </div>
             {show && (
               <div className='flex flex-col items-center'>
-              <Image className={`${styles.welcomeImg}`} src={'/images/oak/oak_sub.png'} width={150} height={150}/>
+              <Image className={`${styles.welcomeImg}`} src={'/images/oak/oak_sub.png'} width={150} height={150} alt='professor'/>
                 <div className={`${styles.typewriter } w-full h-auto`}>
                 <div className={`${styles.typewriter_content}`}>
                   <p>Would you like to become a trainer?</p>

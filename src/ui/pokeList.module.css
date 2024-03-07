@@ -41,7 +41,7 @@
 }
 
 
-.input_field{
+.filter{
     width: 300px;
     padding: 12px 10px;
     /* border: 2px solid #264143; */
@@ -50,21 +50,9 @@
     border-radius: 5px;
     font-size: 15px;
     outline: none;
-    border: 2px solid #5b031a;
+    border: 2px solid black;
     background-color: #e3e3e3;
     box-shadow: inset 2px 5px 5px #7c8282;
 }
 
-.select{
-    width: 300px;
-    padding: 12px 10px;
-    /* border: 2px solid #264143; */
-    /* box-shadow: 3px 3px 0px 1px #fee47c; */
-    /* box-shadow: 3px 3px 0px 1px #e6b073; */
-    border-radius: 5px;
-    font-size: 15px;
-    outline: none;
-    border: 2px solid #5b031a;
-    background-color: #e3e3e3;
-    box-shadow: inset 2px 5px 5px #7c8282;
-}
+

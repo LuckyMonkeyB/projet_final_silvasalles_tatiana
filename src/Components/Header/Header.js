@@ -8,22 +8,26 @@ export default function Header() {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
-        <div className={`${styles.header_container} z-10`}>
+        <div className={`${styles.header_container} z-10 `}>
         <div
-            className={`${styles.triggerArea} bg-red-400`}
+            className={`${styles.triggerArea} relative flex justify-center`}
             onMouseEnter={() => setIsHovered(true)}
             
-        ></div>
-        <div className={`${styles.content} flex flex-row justify-between px-6 py-2`} style={{ transform: isHovered ? 'translateY(0)' : 'translateY(-200%)' }} onMouseLeave={() => setIsHovered(false)}>
-            <Image 
-            className={`${styles.pokemon_img} flex justify-center items-center`} 
-            src='/images/pokemon-logo.png' width={200} height={80} 
-            onClick={() => router.push('/home')} />
-            <Image 
-            className={`${styles.pokedex_img} flex justify-center items-center`} 
-            src='/images/pokedex-retro.png' width={65} height={65} 
-            onClick={() => router.push('/favorite')} />
+        ><p className='bg-[#f2f2f2] '>&#9660;</p>
+            <div className={`${styles.content} absolute w-screen flex flex-row justify-between px-6 py-2`} style={{ transform: isHovered ? 'translateY(0)' : 'translateY(-200%)' }} onMouseLeave={() => setIsHovered(false)}>
+                <Image 
+                className={`${styles.pokemon_img} flex justify-center items-center`} 
+                src='/images/pokemon-logo.png' width={200} height={80} 
+                onClick={() => router.push('/home')} 
+                alt='logo'/>
+                <Image 
+                className={`${styles.pokedex_img} flex justify-center items-center`} 
+                src='/images/pokedex-retro.png' width={65} height={65}
+                alt='pokedex'
+                onClick={() => router.push('/favorite')} />
+            </div>
         </div>
+
         </div>
     );
 }

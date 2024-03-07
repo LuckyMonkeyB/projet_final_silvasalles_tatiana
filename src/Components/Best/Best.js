@@ -1,15 +1,9 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import { fetchData } from '@/app/api/pokedata'
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "@/components/ui/carousel"
 import Image from 'next/image'
 import styles from '@/ui/best.module.css'
+import { useRouter } from 'next/navigation'
 
 export default function Best() {
     //STATES
@@ -21,21 +15,18 @@ export default function Best() {
         fetchData(setData, setIsLoading)
     }, [])
 
-    const filteredBests = data.filter((pokemon) => {pokemon.stats.attack > 98})
+    const router = useRouter()
+
+    const filteredBests = data.filter((pokemon) => (pokemon.stats.attack > 98 && pokemon.stats.HP > 98))
 
     return (
-        <section className='h-48 w-full bg-slate-500'>
-            <Carousel className={``} >
-                <CarouselContent className={``}>
-                    {
-                        filteredBests.map((pokemon, id) => (<CarouselItem key={id} className={``} >
-                            <Image src={pokemon.sprite} width={200} height={200} alt={pokemon.name} className={``}/>
-                        </CarouselItem>))
-                    }
-                </CarouselContent>
-                <CarouselPrevious className="left-14"  />
-                <CarouselNext className="right-14" />
-            </Carousel>
+        <section className='h-auto w-full flex flex-wrap px-24 py-8 bg-[#f2f2f2]'>
+            {
+                filteredBests?.map((pokemon, id) => (<div key={id} onClick={() => router.push(`/${pokemon.name}`)}>
+                    <Image src={pokemon.sprite} width={50} height={50} alt='pokemon' className={``}/>
+                </div>))
+            }
+
         </section>
     )
 }
