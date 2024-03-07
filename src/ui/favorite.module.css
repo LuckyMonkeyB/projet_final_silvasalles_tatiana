@@ -81,6 +81,8 @@
 .screen_frame{
     background-color: #e3e3e3;
     border-radius: 5px;
+    box-shadow: 2px -1px 0px 1px #b0b0b0, 0px 6px 0px 1px #8e062a;
+
 }
 
 .screen{
@@ -123,11 +125,7 @@
     box-shadow: 1px 1px 0px 1px #8e062a;
 }
 
-.bottom_btn_screen:hover{
-    transform: translateY(2px);
-    box-shadow: 1px 1px 0px 0px #8e062a;
-}
-.bottom_btn_screen:focus {
+.bottom_btn_screen:active {
     transform: translateY(2px);
     box-shadow: 1px 1px 0px 0px #8e062a;
 }
@@ -152,4 +150,81 @@
 
 .btn_modal:hover::before{
     content: '\25BA';
+}
+
+
+.bottom_btn_screen {
+    position: relative;
+    display: inline-block;
+}
+
+.bottom_btn_screen .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #444444; 
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    /* transition: opacity 0.3s; */
+    /* animation: fadeOut 2s forwards; */
+}
+
+.bottom_btn_screen:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    animation: fadeOut 5s forwards;
+}
+
+@keyframes fadeOut {
+    0%, 100%{
+        opacity: 0;
+        visibility: hidden;
+    }
+    50%{
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.scroll {
+    position: relative;
+    display: inline-block;
+}
+
+.scroll .tooltiptext{
+    visibility: hidden;
+    width: 120px;
+    background-color: #444444; 
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    /* transition: opacity 0.3s; */
+    /* animation: fadeOut 2s forwards; */
+
+}
+
+.scroll .tooltipTop {
+    bottom: 125%;
+}
+.scroll .tooltipBottom {
+    bottom: -125%;
+}
+
+.scroll:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
 }

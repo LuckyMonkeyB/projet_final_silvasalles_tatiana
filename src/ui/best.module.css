@@ -1,0 +1,46 @@
+.bestImg{
+    image-rendering: pixelated;
+    transition: transform 0.3s ease;
+}
+
+.bestImg:hover{
+    transform: scale(1.5) translateY(-10px);
+}
+
+.poksImg {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltipBest {
+    visibility: hidden;
+    width: 120px;
+    background-color: #444444; 
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 155%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.poksImg:hover .tooltipBest {
+    visibility: visible;
+    opacity: 1;
+}
+
+@keyframes fadeOut {
+    0%, 100%{
+        opacity: 0;
+        visibility: hidden;
+    }
+    50%{
+        opacity: 1;
+        visibility: visible;
+    }
+}

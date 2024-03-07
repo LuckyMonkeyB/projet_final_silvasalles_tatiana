@@ -16,7 +16,7 @@
     transform: translateY(4px);
     box-shadow: 1px 2px 0px 0px #7c8282;
 } */
-.btnUp:focus {
+.btnUp:active {
     transform: translateY(4px);
     box-shadow: 1px 2px 0px 0px #7c8282;
 }

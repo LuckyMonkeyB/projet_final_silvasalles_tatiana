@@ -57,13 +57,17 @@ export default function PokeList() {
 
 
     return (
-        <section className={`${styles.pokeList_container} grid grid-cols-1 items-center justify-between p-24 `}>
-            <div className='bg-[#f2f2f2] border-2 border-black p-16'>
+        <section className={`${styles.pokeList_container} lg:p-24 md:p-16 `}>
+
+            <div className='bg-[#f2f2f2] max-sm:bg-[#d30a40] border-2 border-black p-16 '>
+                <div className='flex justify-center items-center  mb-8'>
+                    <Image src={'/images/catch.png'} width={300} height={100}/>
+                </div>
 
                 {/* FILTERS */}
-                <div className={`${styles.filters} flex flex-row   justify-between w-full px-24 `}>
+                <div className={`${styles.filters} w-full flex flex-row max-lg:flex-col lg:justify-between lg:px-24 md:px-16 sm:px-8 bg-pink-300`}>
                     {/* searchbar filter */}
-                    <div className={`${styles.searchbar}`}>
+                    <div className={`${styles.searchbar} max-lg:mb-4`}>
                         <input className={styles.filter} type="search" id='search' placeholder='Find your pokemon' onChange={(e)=> setQuery(e.target.value)}/>
                     </div>
                     {/* select filter */}
@@ -95,7 +99,7 @@ export default function PokeList() {
                 </div>
 
                 {/* CARDS */}
-                <div className='grid grid-cols-3 gap-x-5 gap-y-10 p-8 my-4 relative'>
+                <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-x-5 gap-y-10 lg:p-8 md:p-4 sm:p-2 my-4 relative'>
                     {
                         filteredData?.slice(0, visiblePokemons).map((pokemon)=> 
                         <div key={pokemon.id} onClick={() => router.push(`/${pokemon.name}`)} className={`${styles.card} h-[40vh] flex flex-col items-center justify-center gap-y-4 p-5`}>
@@ -117,7 +121,7 @@ export default function PokeList() {
                 <div className={`grid items-center py-4`}>
                 {/* MORE */}
                 {visiblePokemons < filteredData.length && (
-                    <button className={`bg-yellow-400 py-2`} onClick={loadMore}>Load More</button>
+                    <button className={`${styles.moreBtn} py-2`} onClick={loadMore}>Load More</button>
                 )}
                 </div>
 

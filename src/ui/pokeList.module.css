@@ -1,5 +1,4 @@
 .pokeList_container{
-    /* background-color: #AAD7F9; */
     background-color: #d30a40;
 }
 
@@ -10,9 +9,7 @@
     transform: translate(-50%, -50%);
 }
 
-.loader{
 
-}
 
 .card {
     border-radius: 35px;
@@ -56,3 +53,21 @@
 }
 
 
+.moreBtn{
+
+}
+
+.moreBtn{
+    padding: 0.5rem;
+    border-radius: 5px;
+    background-color: #ffcb04;
+    box-shadow: 3px 3px 0px 1px #c6ae51;
+    border: 2px solid #5a452d;
+}
+
+
+
+.moreBtn:active {
+    transform: translateY(4px);
+    box-shadow: 1px 2px 0px 0px #e6b073;
+}

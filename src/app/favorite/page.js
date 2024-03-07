@@ -20,6 +20,7 @@ export default function favorite() {
 
     const dispatch = useDispatch()
     const favs = useSelector((state) => state.favorites.favs)
+    const logged = useSelector((state) => state.isLogged)
     
     useEffect(()=>{
         fetchData(setData, setIsLoading)
@@ -69,41 +70,54 @@ export default function favorite() {
                     <div className={`${styles.mini_top_screen}`}></div>
                     <div className={`${styles.mini_top_screen}`}></div>
                 </div>
+                
                 <div className={`${styles.screen} p-8 flex flex-col relative`}>
-                    <div className={`flex justify-center mb-2`}>
-                        <p>POKEDEX</p>
-                    </div>
-                    <div className={`flex flex-wrap gap-4 overflow-hidden`} ref={scroll}>
-                        {
-                            favs?.map((pokemon, id) => (
-                                <div key={id} className='flex flex-col justify-center items-center' onClick={()=>handleShow(pokemon)}>
-                                    <Image alt='pokeball' src={'/images/pokeball/pokeball3.png'} width={50} height={50} className={``}/>
-                                    <p>{pokemon.name}</p>
-                                </div>
-                                
-                            ))
-                        }
-                    </div>
+                    {
+                        logged ? 
+                        (<>
+                        <div className={`flex justify-center mb-2`}>
+                            <p>POKÉDEX</p>
+                        </div>
+                        <div className={`flex flex-wrap gap-4 overflow-hidden`} ref={scroll}>
+                            {
+                                favs?.map((pokemon, id) => (
+                                    <div key={id} className='flex flex-col justify-center items-center' onClick={()=>handleShow(pokemon)}>
+                                        <Image alt='pokeball' src={'/images/pokeball/pokeball3.png'} width={50} height={50} className={``}/>
+                                        <p>{pokemon.name}</p>
+                                    </div>
+                                    
+                                ))
+                            }
+                        </div>
 
-                    <div className={`${styles.modal_container} flex flex-col justify-center items-center absolute top-0 bottom-0 left-0 w-full`} style={{ display: show ? 'block' : 'none' }}>
-                        <div className=' flex flex-col justify-center items-center pb-6'>
-                            <p><img src={modal?.sprite} alt="" srcset="" /></p>
-                            <p>{modal?.name}</p>
+                        <div className={`${styles.modal_container} flex flex-col justify-center items-center absolute top-0 bottom-0 left-0 w-full`} style={{ display: show ? 'block' : 'none' }}>
+                            <div className=' flex flex-col justify-center items-center pb-6'>
+                                <p><img src={modal?.sprite} alt="" srcset="" /></p>
+                                <p>{modal?.name}</p>
+                            </div>
+                            <div className='flex flex-row justify-center gap-4 pb-4'>
+                                <button className={`${styles.btn_modal}`} onClick={() => releaseBtn(modal)}>RELEASE</button>
+                                <button className={`${styles.btn_modal}`} onClick={() => router.push(`/${modal.name}`)}>SEE MORE</button>
+                            </div>
                         </div>
-                        <div className='flex flex-row justify-center gap-4 pb-4'>
-                            <button className={`${styles.btn_modal}`} onClick={() => releaseBtn(modal)}>RELEASE</button>
-                            <button className={`${styles.btn_modal}`} onClick={() => router.push(`/${modal.name}`)}>SEE MORE</button>
-                        </div>
-                    </div>
+                        </>) : (<div><p>please login</p></div>)
+                    }
+
                 </div>
 
 
                 <div className='flex flex-row justify-between w-100 mt-2 '>
-                    <button className={`${styles.bottom_btn_screen}`} onClick={() => dispatch(clearOut())}></button>
+                    <button className={`${styles.bottom_btn_screen}`} onClick={() => dispatch(clearOut())}>
+                        <span className={`${styles.tooltiptext}`}>Clear Favorites</span>
+                    </button>
 
                     <div className=' flex flex-col items-center '>
-                        <p className='' onClick={scrollT}>&#9650;</p>
-                        <p className='' onClick={scrollB}>&#9660;</p>
+                        <button className={`${styles.scroll}`} onClick={scrollT}>&#9650;
+                            <span className={`${styles.tooltipTop} ${styles.tooltiptext}`}>Top</span>
+                        </button>
+                        <button className={`${styles.scroll}`} onClick={scrollB}>&#9660;
+                            <span className={`${styles.tooltipBottom} ${styles.tooltiptext}`}>Bottom</span>
+                        </button>
                     </div>
 
 

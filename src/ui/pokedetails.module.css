@@ -21,8 +21,8 @@
 }
 
 .infos_content{
-    /* background-color: #e3e3e3; */
-    background-color: #b0b0b0;
+    background-color: #c8c8c8;
+    /* background-color: #b0b0b0; */
     box-shadow: 3px 3px 0px 1px #797979;
     border: 2px solid #3d3d3d;
     border-radius: 5px;
@@ -77,7 +77,7 @@
     transform: translateY(4px);
     box-shadow: 1px 2px 0px 0px #7c8282;
 }
-.details_btns button:focus {
+.details_btns button:active {
     transform: translateY(4px);
     box-shadow: 1px 2px 0px 0px #7c8282;
 }

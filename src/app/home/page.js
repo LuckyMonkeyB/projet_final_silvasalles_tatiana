@@ -27,15 +27,15 @@ export default function Home() {
 
     return (
         <main className="flex min-h-screen flex-col relative ">
-            {/* CAROUSEL */}
-            <div className="w-full flex justify-center items-center">
+            {/* CAROUSEL SECTION*/}
+            <section className="w-full flex justify-center items-center">
                 <Slider/>
-            </div>
-            {/* BEST POKEMONS */}
-            <div className="w-full flex justify-center items-center">
+            </section>
+            {/* BEST POKEMONS SECTION*/}
+            <section className="w-full flex justify-center items-center">
                 <Best />
-            </div>
-            {/* POKEMONS LIST */}
+            </section>
+            {/* POKEMONS LIST SECTION*/}
             <PokeList />
             {/* GO UP */}
             {goUp && (

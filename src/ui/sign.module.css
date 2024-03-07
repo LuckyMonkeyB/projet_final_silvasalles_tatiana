@@ -56,11 +56,18 @@
     box-shadow: inset 2px 5px 5px #7c8282;
 }
 
-.btn:focus {
+.btn:active {
     transform: translateY(4px);
     /* box-shadow: 1px 2px 0px 0px #fee47c; */
     box-shadow: 1px 2px 0px 0px #7c8282;
 }
+
+/* .btn:focus {
+    transform: translateY(4px);
+    box-shadow: 1px 2px 0px 0px #fee47c;
+    box-shadow: 1px 2px 0px 0px #7c8282;
+} */
+
 /* .input_field:focus, .btn:focus {
     transform: translateY(4px);
     box-shadow: 1px 2px 0px 0px #7c8282;

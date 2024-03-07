@@ -20,10 +20,15 @@ export default function Best() {
     const filteredBests = data.filter((pokemon) => (pokemon.stats.attack > 98 && pokemon.stats.HP > 98))
 
     return (
-        <section className='h-auto w-full flex flex-wrap px-24 py-8 bg-[#f2f2f2]'>
+        <section className='h-auto w-full  px-24 py-8 bg-[#f2f2f2]'>
+            <div className='text-center py-4'>
+                <p className='text-4xl'>POKÉMON ELITE</p>
+                <p >At the Peak of Pokémon Power: Strength and Vitality</p>
+            </div>
             {
-                filteredBests?.map((pokemon, id) => (<div key={id} onClick={() => router.push(`/${pokemon.name}`)}>
-                    <Image src={pokemon.sprite} width={50} height={50} alt='pokemon' className={``}/>
+                filteredBests?.map((pokemon, id) => (<div key={id} onClick={() => router.push(`/${pokemon.name}`)} className={`${styles.poksImg} flex flex-wrap`}>
+                    <Image src={pokemon.sprite} width={50} height={50} alt='pokemon' className={`${styles.bestImg}`}/>
+                    <span className={`${styles.tooltipBest}`}>{pokemon.name}</span>
                 </div>))
             }
 

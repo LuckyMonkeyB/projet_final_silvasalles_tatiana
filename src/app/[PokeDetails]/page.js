@@ -59,9 +59,9 @@ export default function PokeDetails({params}) {
 
     return (
         <div className={`${styles.details_page} w-screen h-screen flex justify-center items-center`}>
-            <div className={`${styles.details_container} grid grid-cols-1  w-4/5 h-4/5`}>
+            <div className={`${styles.details_container}   w-4/5 h-4/5`}>
                 {/* TITLE */}
-                <div className={`${styles.details_title} grid justify-center items-center `}>
+                <div className={`${styles.details_title} text-center `}>
                     <h1>{detail?.name}</h1>
                 </div>
                 {/* LOADING */}
@@ -71,9 +71,8 @@ export default function PokeDetails({params}) {
                         <Image className={`${styles.giphy}`} src='/images/giphy.gif' width={80} height={90} alt='gif'/>
                     </div>
                 }
-                {/* SCREEN */}
                 {detail !== undefined &&(
-                    <div  className={`${styles.details_content} grid grid-cols-2 p-8 `}>
+                    <div  className={`${styles.details_content} grid lg:grid-cols-2 max-md:grid-cols-1 p-8 `}>
                         {/* POKEMON IMAGE */}
                         <div className={`${styles.pokeImg} grid justify-center items-center `}>
                             <Image src={detail?.image} width={200} height={200} alt='pokemon'/>
@@ -83,9 +82,10 @@ export default function PokeDetails({params}) {
                             </div>
                         </div>
 
+                        {/* SCREEN */}
                         {/* POKEMON INFOS */}
-                        <div className={`${styles.infos_content} flex justify-center items-center `}>
-                            <div className={`${styles.infos_screen} grid grid-cols-2 p-4 `}>
+                        <div className={`${styles.infos_content} flex justify-center items-center p-2`}>
+                            <div className={`${styles.infos_screen} grid lg:grid-cols-2 max-md-grid-cols-1 p-4 `}>
                                 <div className={` ${styles.infos_col}  `}>
                                     {/* types */}
                                     <div className={` ${styles.types}`}>
@@ -98,7 +98,7 @@ export default function PokeDetails({params}) {
                                     {/* faiblesses */}
                                     <div className={`${styles.weaknesses}`}>
                                         <p className={`font-bold mb-2`}>WEAKNESSES</p>
-                                        <div className={`flex flex-row flex-wrap gap-4`}>
+                                        <div className={`flex flex-row flex-wrap gap-4 mb-4`}>
                                             {vulnerabilities.length > 0 ? (vulnerabilities.map((weakness, id) => (
                                                 <button key={id}>{weakness.name}</button>
                                             ))
