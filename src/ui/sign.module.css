@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
 .container{
     background-image: url('/images/forest.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: contain;
-    /* box-shadow: inset 0 0 0 100vw rgba(27, 27, 27, 0.2) */
 }
 
 .form {
@@ -11,10 +12,6 @@
     padding-inline: 2rem;
     display: flex;
     flex-direction: column;
-    /* background-color: #fbf3d3; */
-    /* box-shadow: 3px 3px 0px 1px #fee47c; */
-    /* border: 2px solid #264143; */
-    /* box-shadow: 3px 3px 0px 1px #e6b073; */
     border-radius: 25px;
     background-color: #d30a40;
     box-shadow: 3px 3px 0px 1px #8e062a;
@@ -26,7 +23,6 @@
     text-align: center;
     margin-block: 2rem;
     font-size: 2rem;
-    /* color: #264143; */
     color: transparent;
     background: #5b031a;
     -webkit-background-clip: text;
@@ -38,16 +34,13 @@
 .field {
     display: flex;
     flex-direction: column;
-    /* border: none; */
 }
+
 
 
 .input_field {
     width: 300px;
     padding: 12px 10px;
-    /* border: 2px solid #264143; */
-    /* box-shadow: 3px 3px 0px 1px #fee47c; */
-    /* box-shadow: 3px 3px 0px 1px #e6b073; */
     border-radius: 5px;
     font-size: 15px;
     outline: none;
@@ -58,7 +51,6 @@
 
 .btn:active {
     transform: translateY(4px);
-    /* box-shadow: 1px 2px 0px 0px #fee47c; */
     box-shadow: 1px 2px 0px 0px #7c8282;
 }
 
@@ -80,10 +72,6 @@
     justify-content: center;
     align-items: center;
     padding: 0.5rem;
-    /* background-color: #0febf7; */
-    /* box-shadow: 3px 3px 0px 1px #19808b; */
-    /* border: 2px solid #264143; */
-    /* color: #264143; */
     border-radius: 5px;
     background-color: #444444;
     box-shadow: 3px 3px 0px 1px #222222;

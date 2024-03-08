@@ -20,7 +20,7 @@ export default function favorite() {
 
     const dispatch = useDispatch()
     const favs = useSelector((state) => state.favorites.favs)
-    const logged = useSelector((state) => state.isLogged)
+    const logged = useSelector((state) => state.auth.isLogged)
     
     useEffect(()=>{
         fetchData(setData, setIsLoading)

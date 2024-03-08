@@ -33,7 +33,7 @@ export default function login() {
 
                 <div className='grid gap-2'>
                     <div className={styles.field}>
-                    <label className="labs text-white" for="name">Username</label>
+                    <label className={` labs text-white`} for="name">Username</label>
                         <input 
                         autocomplete="off" 
                         placeholder="Username" 
@@ -43,7 +43,7 @@ export default function login() {
                     </div>
 
                     <div className={styles.field}>
-                        <label className="labs text-white" for="password">Password</label>
+                        <label className={` labs text-white`} for="password">Password</label>
                         <input 
                         placeholder="Password" 
                         className={styles.input_field} 

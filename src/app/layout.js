@@ -6,7 +6,7 @@ import "../ui/globals.css";
 
 // const press = Press_Start_2P({weight: '400', subsets: ["latin"] });
 const pixelify = Pixelify_Sans({ subsets: ["latin"] });
-// const inter = Inter({ subsets: ["latin"] });
+// export const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",

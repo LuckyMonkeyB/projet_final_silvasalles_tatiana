@@ -22,6 +22,8 @@ export default function PokeDetails({params}) {
 
     const dispatch = useDispatch()
     const favs = useSelector((state) => state.favorites.favs)
+    const logged = useSelector((state) => state.auth.isLogged)
+
 
 
 
@@ -129,10 +131,12 @@ export default function PokeDetails({params}) {
                 {
                     !isLoading &&
                     <div className={`${styles.details_btns} flex flex-row justify-around items-center `}>
-                        {
-                            favs?.find((pokemon) => pokemon?.id == detail?.id) ?
-                            <button onClick={() => dispatch(remove(detail))}>RELEASE</button>
-                            :<button onClick={() => dispatch(add(detail))}>CATCH</button> 
+                        {logged &&
+                            <>{ 
+                                favs?.find((pokemon) => pokemon?.id == detail?.id) ?
+                                <button onClick={() => dispatch(remove(detail))}>RELEASE</button>
+                                :<button onClick={() => dispatch(add(detail))}>CATCH</button> 
+                            }</>
                         }
                     </div>
                 }

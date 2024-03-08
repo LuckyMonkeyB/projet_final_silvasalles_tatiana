@@ -30,8 +30,8 @@ export default function subscribe() {
                 <p id={styles.heading}>Subscribe</p>
 
                 <div className='grid gap-2'>
-                    <div className={styles.field}>
-                        <label className={`${styles.labs} text-white`} for="email">Email</label>
+                    <div className={ `${styles.field}`}>
+                        <label className={`${styles.labs}  text-white`} for="email">Email</label>
                         <input 
                         placeholder="Email address" 
                         className={styles.input_field} 
@@ -39,7 +39,7 @@ export default function subscribe() {
                     </div>
 
                     <div className={styles.field}>
-                        <label className={`${styles.labs} text-white`} for="name">Username</label>
+                        <label className={`${styles.labs}  text-white`} for="name">Username</label>
                         <input 
                         autocomplete="off" 
                         placeholder="Username" 
@@ -49,7 +49,7 @@ export default function subscribe() {
                     </div>
 
                     <div className={styles.field}>
-                        <label className={`${styles.labs} text-white`} for="password">Password</label>
+                        <label className={`${styles.labs}  text-white`} for="password">Password</label>
                         <input 
                         placeholder="Email address" 
                         className={styles.input_field} 
