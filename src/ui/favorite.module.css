@@ -179,10 +179,10 @@
 .bottom_btn_screen:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
-    animation: fadeOut 5s forwards;
+    /* animation: fadeOut 5s forwards; */
 }
 
-@keyframes fadeOut {
+/* @keyframes fadeOut {
     0%, 100%{
         opacity: 0;
         visibility: hidden;
@@ -191,7 +191,7 @@
         opacity: 1;
         visibility: visible;
     }
-}
+} */
 
 .scroll {
     position: relative;

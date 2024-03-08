@@ -65,9 +65,9 @@ export default function PokeList() {
                 </div>
 
                 {/* FILTERS */}
-                <div className={`${styles.filters} w-full flex flex-row max-lg:flex-col lg:justify-between lg:px-24 md:px-16 sm:px-8 bg-pink-300`}>
+                <div className={`${styles.filters} w-full flex flex-row max-md:flex-col lg:px-24 lg:justify-between md:justify-between sm:justify-center `}>
                     {/* searchbar filter */}
-                    <div className={`${styles.searchbar} max-lg:mb-4`}>
+                    <div className={`${styles.searchbar} max-md:mb-4`}>
                         <input className={styles.filter} type="search" id='search' placeholder='Find your pokemon' onChange={(e)=> setQuery(e.target.value)}/>
                     </div>
                     {/* select filter */}

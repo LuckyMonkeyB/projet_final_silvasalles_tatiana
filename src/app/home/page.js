@@ -26,7 +26,7 @@ export default function Home() {
     }
 
     return (
-        <main className="flex min-h-screen flex-col relative ">
+        <main className="flex min-h-screen flex-col relative overflow-x-hidden">
             {/* CAROUSEL SECTION*/}
             <section className="w-full flex justify-center items-center">
                 <Slider/>

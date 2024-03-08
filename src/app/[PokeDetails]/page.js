@@ -18,19 +18,12 @@ export default function PokeDetails({params}) {
         fetchData(setData, setIsLoading)
     }, [])
 
-    const router = useRouter()
 
     const dispatch = useDispatch()
     const favs = useSelector((state) => state.favorites.favs)
     const logged = useSelector((state) => state.auth.isLogged)
 
-
-
-
     const detail = data.find((pokemon)=>pokemon.name === params.PokeDetails)
-
-    const evolutions = detail?.apiEvolutions || [];
-    const evol = data.filter((pokemon) => evolutions.includes(pokemon.name)) 
 
     const types = detail?.apiTypes || []
 
@@ -60,8 +53,8 @@ export default function PokeDetails({params}) {
     console.log(favs)
 
     return (
-        <div className={`${styles.details_page} w-screen h-screen flex justify-center items-center`}>
-            <div className={`${styles.details_container}   w-4/5 h-4/5`}>
+        <div className={`${styles.details_page} w-screen h-screen max-md:h-full flex justify-center items-center`}>
+            <div className={`${styles.details_container}   w-4/5 h-4/5  `}>
                 {/* TITLE */}
                 <div className={`${styles.details_title} text-center `}>
                     <h1>{detail?.name}</h1>
@@ -74,20 +67,16 @@ export default function PokeDetails({params}) {
                     </div>
                 }
                 {detail !== undefined &&(
-                    <div  className={`${styles.details_content} grid lg:grid-cols-2 max-md:grid-cols-1 p-8 `}>
+                    <div  className={`${styles.details_content} grid grid-cols-2 max-md:grid-cols-1 p-8 `}>
                         {/* POKEMON IMAGE */}
-                        <div className={`${styles.pokeImg} grid justify-center items-center `}>
+                        <div className={`${styles.pokeImg} grid justify-center items-center order-1 max-md:order-2`}>
                             <Image src={detail?.image} width={200} height={200} alt='pokemon'/>
-                            {/* evolution */}
-                            <div className={`${styles.evol} grid grid-cols-3`}>
-
-                            </div>
                         </div>
 
                         {/* SCREEN */}
                         {/* POKEMON INFOS */}
-                        <div className={`${styles.infos_content} flex justify-center items-center p-2`}>
-                            <div className={`${styles.infos_screen} grid lg:grid-cols-2 max-md-grid-cols-1 p-4 `}>
+                        <div className={`${styles.infos_content} flex justify-center items-center p-2 order-2 max-md:order-1 `}>
+                            <div className={`${styles.infos_screen} grid lg:grid-cols-2 md-grid-cols-1 p-4 `}>
                                 <div className={` ${styles.infos_col}  `}>
                                     {/* types */}
                                     <div className={` ${styles.types}`}>
