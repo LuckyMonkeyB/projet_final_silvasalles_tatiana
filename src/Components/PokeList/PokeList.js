@@ -61,8 +61,9 @@ export default function PokeList() {
 
             <div className='bg-[#f2f2f2] max-sm:bg-[#d30a40] border-2 border-black p-16 '>
                 <div className='flex justify-center items-center  mb-8'>
-                    <Image src={'/images/catch.png'} width={300} height={100}/>
+                    <Image src={'/images/catch.png'} width={300} height={100} className='block max-md:hidden'/>
                     {/* <Image src={'/images/gotta.png'} width={300} height={100}/> */}
+                    <Image src={'/images/emAll.png'} width={300} height={100} className='hidden max-md:block'/>
 
                 </div>
 
